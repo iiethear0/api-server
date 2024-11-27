@@ -10,4 +10,5 @@ spec:
   type: openapi
   lifecycle: production
   owner: fisal7003@gmail.com
-  definition: ./openapi.yaml
+  definition:
+    $text: https://github.com/iiethear0/api-server/blob/main/openapi.yaml
