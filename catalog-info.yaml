@@ -1,14 +1,13 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: api-server-swagger
-  description: API server with Swagger documentation for CRUD operations
+  name: api-server
+  description: CRUD API for managing items
   tags:
     - api
-    - swagger
-    - express
+    - openapi
 spec:
   type: openapi
   lifecycle: production
   owner: fisal7003@gmail.com
-  definition: http://localhost:4000/api-docs
+  definition: ./openapi.yaml
