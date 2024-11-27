@@ -2,13 +2,13 @@ apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: api-server
-  description: CRUD API for managing items
+  description: A simple CRUD API
   tags:
     - api
-    - openapi
+    - swagger
 spec:
   type: openapi
   lifecycle: production
-  owner: fisal7003@gmail.com
+  owner: Faisal
   definition:
-    $text: https://github.com/iiethear0/api-server/blob/main/routes/api.js
+    url: https://8dd7-51-252-154-73.ngrok-free.app/api-docs/swagger.json
