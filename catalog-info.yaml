@@ -11,4 +11,4 @@ spec:
   lifecycle: production
   owner: Faisal
   definition:
-    url: https://8dd7-51-252-154-73.ngrok-free.app/api-docs/swagger.json
+    $text: https://8dd7-51-252-154-73.ngrok-free.app/api-docs/swagger.json
