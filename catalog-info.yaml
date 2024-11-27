@@ -11,4 +11,4 @@ spec:
   lifecycle: production
   owner: fisal7003@gmail.com
   definition:
-    $text: https://github.com/iiethear0/api-server/blob/main/openapi.yaml
+    $text: https://github.com/iiethear0/api-server/blob/main/routes/api.js
