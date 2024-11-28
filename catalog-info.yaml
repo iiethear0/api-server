@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: api demo
+  name: api-demo
   description: A simple CRUD API
   tags:
     - testing
