@@ -1,14 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: api-demo
+  name: api-server
   description: A simple CRUD API
   tags:
-    - testing
-    - anb
+    - api
+    - swagger
 spec:
   type: openapi
   lifecycle: production
-  owner: teasting team
+  owner: Faisal
   definition:
     $text: https://github.com/iiethear0/api-server/blob/main/routes/api.js
