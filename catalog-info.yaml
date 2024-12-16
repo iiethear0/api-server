@@ -2,6 +2,9 @@ apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: api-server
+  links:
+    - url: http://localhost:4000/api-docs/#/default/get_api_items
+      title: My Dashboard
   description: A simple CRUD API
   tags:
     - api
