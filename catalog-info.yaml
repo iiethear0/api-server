@@ -25,4 +25,11 @@ spec:
   lifecycle: production
   owner: Faisal
   system: swagger
-  providesApis: [api-server]
+  providesApis: [items-api]
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: swagger
+spec:
+  owner: fisal7003
