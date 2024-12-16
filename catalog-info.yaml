@@ -12,7 +12,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: Faisal
+  owner: fisal7003
   definition:
     $text: https://github.com/iiethear0/api-server/blob/main/openapi.yaml
 ---
@@ -23,7 +23,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: Faisal
+  owner: fisal7003
   system: swagger
   providesApis: [items-api]
 ---
