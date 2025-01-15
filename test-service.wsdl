@@ -1,52 +1,94 @@
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                  targetNamespace="http://example.com/wsdl">
-  <wsdl:types>
-    <xsd:schema targetNamespace="http://example.com/wsdl">
-      <xsd:element name="TestRequest">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="Message" type="xsd:string"/>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="TestResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="Reply" type="xsd:string"/>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-    </xsd:schema>
-  </wsdl:types>
-  <wsdl:message name="TestRequestMessage">
-    <wsdl:part name="parameters" element="tns:TestRequest"/>
-  </wsdl:message>
-  <wsdl:message name="TestResponseMessage">
-    <wsdl:part name="parameters" element="tns:TestResponse"/>
-  </wsdl:message>
-  <wsdl:portType name="TestServicePortType">
-    <wsdl:operation name="TestOperation">
-      <wsdl:input message="tns:TestRequestMessage"/>
-      <wsdl:output message="tns:TestResponseMessage"/>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="TestServiceBinding" type="tns:TestServicePortType">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="TestOperation">
-      <soap:operation soapAction="http://example.com/wsdl/TestOperation"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="TestService">
-    <wsdl:port name="TestServicePort" binding="tns:TestServiceBinding">
-      <soap:address location="http://localhost:8080/TestService"/>
-    </wsdl:port>
-  </wsdl:service>
-</wsdl:definitions>
+<!-- CurrencyConverter WSDL with Request and Response Examples -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" 
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+             xmlns:tns="http://example.com/currencyconverter" 
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+             targetNamespace="http://example.com/currencyconverter">
+             
+    <!-- Service Description -->
+    <types>
+        <xsd:schema targetNamespace="http://example.com/currencyconverter">
+            <xsd:element name="ConvertRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="FromCurrency" type="xsd:string" />
+                        <xsd:element name="ToCurrency" type="xsd:string" />
+                        <xsd:element name="Amount" type="xsd:float" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ConvertResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ConvertedAmount" type="xsd:float" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+
+    <!-- Port Type -->
+    <message name="ConvertRequestMessage">
+        <part name="parameters" element="tns:ConvertRequest" />
+    </message>
+    <message name="ConvertResponseMessage">
+        <part name="parameters" element="tns:ConvertResponse" />
+    </message>
+
+    <portType name="CurrencyConverterPortType">
+        <operation name="Convert">
+            <input message="tns:ConvertRequestMessage" />
+            <output message="tns:ConvertResponseMessage" />
+        </operation>
+    </portType>
+
+    <!-- Binding -->
+    <binding name="CurrencyConverterBinding" type="tns:CurrencyConverterPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="Convert">
+            <soap:operation soapAction="http://example.com/currencyconverter/Convert" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+
+    <!-- Service -->
+    <service name="CurrencyConverterService">
+        <documentation>A service to convert currency amounts between two currencies.</documentation>
+        <port name="CurrencyConverterPort" binding="tns:CurrencyConverterBinding">
+            <soap:address location="http://example.com/currencyconverter" />
+        </port>
+    </service>
+</definitions>
+
+<!-- Request Example -->
+<!-- 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:cur="http://example.com/currencyconverter">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <cur:ConvertRequest>
+            <cur:FromCurrency>USD</cur:FromCurrency>
+            <cur:ToCurrency>EUR</cur:ToCurrency>
+            <cur:Amount>100.0</cur:Amount>
+        </cur:ConvertRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
+-->
+
+<!-- Response Example -->
+<!-- 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:cur="http://example.com/currencyconverter">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <cur:ConvertResponse>
+            <cur:ConvertedAmount>85.0</cur:ConvertedAmount>
+        </cur:ConvertResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+-->
