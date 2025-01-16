@@ -3,7 +3,7 @@ kind: API
 metadata:
   name: items-api
   links:
-    - url: https://github.com/iiethear0/api-server/blob/main/document.docx?raw=true
+    - url: https://github.com/iiethear0/api-server/blob/main/document.doc?raw=true
       title: Download Documentation
   description: A simple CRUD API
   tags:
